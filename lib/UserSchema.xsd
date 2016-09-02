@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xs:schema xmlns="model/User"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		   targetNamespace="model/User">
+<!-- Definition of simple elements --> 
+<xs:element name="user_name" type="xs:string"></xs:element>
+<xs:element name="first_name" type="xs:string"></xs:element> 
+<xs:element name="last_name" type="xs:string"></xs:element>
+<xs:element name="email" type="xs:string"></xs:element>
+<xs:element name="password" type="xs:string"></xs:element>
+<xs:element name="adress" type="xs:string"></xs:element>
+<!-- Definition of attributes -->
+
+<!-- Definition of complex types --> 
+<xs:complexType name="UserType"> 
+	<xs:sequence>
+		 <xs:element ref="first_name"></xs:element> 
+		 <xs:element ref="last_name"></xs:element> 
+		 <xs:element ref="user_name"></xs:element> 
+		 <xs:element ref="email"></xs:element>
+		 <xs:element ref="password"></xs:element> 
+		 <xs:element ref="adress"></xs:element> 
+	</xs:sequence> 
+</xs:complexType>
+<xs:complexType name="UserListType"> 
+	<xs:sequence> 
+		<xs:element ref="user" maxOccurs="unbounded"></xs:element> 
+	</xs:sequence> 
+</xs:complexType>
+<!-- Definition of complex elements -->
+<xs:element name="user"  type="UserType"></xs:element> 
+<xs:element name="users"  type="UserListType"></xs:element> 
+
+</xs:schema>
